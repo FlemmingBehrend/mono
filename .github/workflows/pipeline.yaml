@@ -5,6 +5,8 @@ on:
     types: [opened]
 
 jobs:
-  run: |
-    ls
-    echo "issue created"
+  runs-on: ubuntu-latest
+  steps:
+    - run: |
+        ls
+        echo "issue created"
