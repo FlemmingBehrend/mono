@@ -1,0 +1,10 @@
+name: master pipeline
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  run: |
+    ls
+    echo "issue created"
