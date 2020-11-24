@@ -13,4 +13,3 @@ jobs:
         with:
           workflow: Other
           token: ${{ secrets.PIPELINE }}
-          inputs: '{ "message": "blah blah", "debug": true }'

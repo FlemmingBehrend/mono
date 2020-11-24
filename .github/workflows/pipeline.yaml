@@ -1,16 +1,6 @@
 name: Other
 
-on: 
-  workflow_dispatch:
-    inputs:
-      name:
-        description: 'message'
-        required: true
-        default: 'wrong message'
-      name:
-        description: 'debug'
-        required: true
-        default: false
+on: workflow_dispatch
 
 jobs:
   analyse:
