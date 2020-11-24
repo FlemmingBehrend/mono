@@ -10,14 +10,14 @@ jobs:
               with:
                   fetch-depth: 0
             - run: |
-                  echo "latest_tag={git describe --tags}" >> $GITHUB_ENV
+                  echo ::set-env name=LATEST_TAG::$(git describe --tags)
                   git tag mono-commit-${{ github.sha }}
-                  echo "current_tag={git describe --tags}" >> $GITHUB_ENV
+                  echo ::set-env name=CURRENT_TAG::$(git describe --tags)
                   git push origin --tags
                   git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
                   echo #### diffs ####
-                  echo $current_tag
-                  echo $latest_tag
+                  echo ${{ env.LATEST_TAG }}
+                  echo ${{ env.CURRENT_TAG }}
             - name: Invoke workflow with inputs
               uses: benc-uk/workflow-dispatch@v1
               with:
