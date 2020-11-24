@@ -10,6 +10,7 @@ jobs:
               with:
                   fetch-depth: 0
             - run: |
+                  LATEST_TAG=$(git describe --tags)
                   git tag mono-commit-${{ github.sha }}
                   git push origin --tags
                   git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
