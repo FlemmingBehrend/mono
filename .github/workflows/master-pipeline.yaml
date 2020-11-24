@@ -10,14 +10,14 @@ jobs:
               with:
                   fetch-depth: 0
             - run: |
-                  LATEST_TAG="$(git describe --tags)"
-                  echo $LATEST_TAG
+                  LATEST_TAG="$(git describe --tags)" || true
+                  echo $LATEST_TAG || true
                   git tag mono-commit-${{ github.sha }}
                   CURRENT_TAG="$(git describe --tags)"
                   echo $CURRENT_TAG
                   git push origin --tags
                   echo #### diffs ####
-                  git diff $LATEST_TAG $CURRENT_TAG --stat
+                  git diff $LATEST_TAG $CURRENT_TAG --stat || true
             # - name: Invoke workflow with inputs
             #   uses: benc-uk/workflow-dispatch@v1
             #   with:
