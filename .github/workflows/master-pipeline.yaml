@@ -10,6 +10,7 @@ jobs:
               with:
                   fetch-depth: 0
             - run: |
+                  git describe --tags
                   LATEST_TAG="$(git describe --tags)" || true
                   echo $LATEST_TAG || true
                   git tag mono-commit-${{ github.sha }}
