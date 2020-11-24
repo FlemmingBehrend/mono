@@ -1,0 +1,16 @@
+name: master pipeline
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  analyse:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Invoke workflow with inputs
+        uses: benc-uk/workflow-dispatch@v1
+        with:
+          workflow: Other
+          token: ${{ secrets.PIPELINE }}
+          inputs: '{ "message": "blah blah", "debug": true }'

@@ -1,8 +1,16 @@
-name: master pipeline
+name: Other
 
-on:
-  issues:
-    types: [opened]
+on: 
+  workflow_dispatch:
+    inputs:
+      name:
+        description: 'message'
+        required: true
+        default: 'wrong message'
+      name:
+        description: 'debug'
+        required: true
+        default: false
 
 jobs:
   analyse:
