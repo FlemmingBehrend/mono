@@ -16,7 +16,7 @@ jobs:
                   CURRENT_TAG="$(git describe --tags)"
                   echo $CURRENT_TAG
                   git push origin --tags
-                  echo #### diffs ####
+                  echo "diffs"
                   git diff $LATEST_TAG $CURRENT_TAG --stat || true
             # - name: Invoke workflow with inputs
             #   uses: benc-uk/workflow-dispatch@v1
