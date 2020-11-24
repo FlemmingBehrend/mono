@@ -11,10 +11,10 @@ jobs:
                   fetch-depth: 0
             - run: |
                   git describe --tags
-                  LATEST_TAG="$(git describe --tags --exact-match)" || true
+                  LATEST_TAG="$(git describe --tags --abbrev=0)" || true
                   echo $LATEST_TAG || true
                   git tag mono-commit-${{ github.sha }}
-                  CURRENT_TAG="$(git describe --tags --exact-match)"
+                  CURRENT_TAG="$(git describe --tags)"
                   echo $CURRENT_TAG
                   git push origin --tags
                   echo "diffs"
