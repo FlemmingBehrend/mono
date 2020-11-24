@@ -3,11 +3,11 @@ name: Other
 on: workflow_dispatch
 
 jobs:
-  analyse:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - run: |
-          ls
-          echo "issue created"
+    analyse:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v2
+            - run: |
+                  ls
+                  echo "issue created"

@@ -1,21 +1,21 @@
 name: master pipeline
 
 on:
-  issues:
-    types: [opened]
+    issues:
+        types: [opened]
 
 jobs:
-  analyse:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-      - run: |
-          git tag mono-commit-${{ github.sha }}
-          git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-      - name: Invoke workflow with inputs
-        uses: benc-uk/workflow-dispatch@v1
-        with:
-          workflow: Other
-          token: ${{ secrets.PIPELINE }}
+    analyse:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v2
+              with:
+                  fetch-depth: 0
+            - run: |
+                  git tag mono-commit-${{ github.sha }}
+                  git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+            - name: Invoke workflow with inputs
+              uses: benc-uk/workflow-dispatch@v1
+              with:
+                  workflow: Other
+                  token: ${{ secrets.PIPELINE }}
