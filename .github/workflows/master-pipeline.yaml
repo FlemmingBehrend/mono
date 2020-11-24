@@ -1,8 +1,6 @@
 name: master pipeline
 
-on:
-    issues:
-        types: [opened]
+on: push
 
 jobs:
     analyse:
