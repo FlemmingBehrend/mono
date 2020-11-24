@@ -16,7 +16,7 @@ jobs:
                   git push origin --tags
                   git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
                   echo #### diffs ####
-                  git diff env.current_tag env.latest_tag --stat
+                  git diff $current_tag $latest_tag --stat
             - name: Invoke workflow with inputs
               uses: benc-uk/workflow-dispatch@v1
               with:
