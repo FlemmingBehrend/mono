@@ -15,7 +15,7 @@ jobs:
                   CURRENT_TAG="$(git describe --tags)"
                   git push origin --tags
                   echo "diffs"
-                  PACKAGES_CHANGED="(git diff $LATEST_TAG $CURRENT_TAG --stat | grep packages)" || true
+                  PACKAGES_CHANGED="$(git diff $LATEST_TAG $CURRENT_TAG --stat | grep packages)" || true
                   echo $PACKAGES_CHANGED
             # - name: Invoke workflow with inputs
             #   uses: benc-uk/workflow-dispatch@v1
