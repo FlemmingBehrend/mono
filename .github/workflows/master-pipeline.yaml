@@ -9,9 +9,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: christophebedard/tag-version-commit@v1
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+      - run: |
+          git status
+          git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
       - name: Invoke workflow with inputs
         uses: benc-uk/workflow-dispatch@v1
         with:
